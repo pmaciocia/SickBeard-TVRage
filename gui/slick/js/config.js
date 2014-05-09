@@ -38,6 +38,7 @@ $(document).ready(function(){
     });
 
 	$('#testProxy').click(function(){
+		var loading = '<img src="'+sbRoot+'/images/loading16.gif" height="16" width="16" />';
 		$('#testProxy-result').html(loading);
 		$.get(sbRoot+"/home/testProxy", {}, 
 			function (data){ $('#testProxy-result').html(data); });
