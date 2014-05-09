@@ -2558,7 +2558,7 @@ class Home:
     def testProxy(self):
         cherrypy.response.headers['Cache-Control'] = "max-age=0,no-cache,no-store"
 
-        test_url = "http://ipinfo.org/ip"
+        test_url = "http://ipinfo.io/ip"
 
         proxy    = helpers.getURL(test_url, use_proxy=True)
         no_proxy = helpers.getURL(test_url, use_proxy=False)
