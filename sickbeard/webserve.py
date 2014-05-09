@@ -2555,6 +2555,17 @@ class Home:
         return accesMsg
 
     @cherrypy.expose
+    def testProxy(self):
+        cherrypy.response.headers['Cache-Control'] = "max-age=0,no-cache,no-store"
+
+        test_url = "http://ipinfo.org/ip"
+
+        proxy    = helpers.getURL(test_url, use_proxy=True)
+        no_proxy = helpers.getURL(test_url, use_proxy=False)
+        
+        return "with proxy: %s, without: proxy: %s" % (proxy, no_proxy)
+
+    @cherrypy.expose
     def testGrowl(self, host=None, password=None):
         cherrypy.response.headers['Cache-Control'] = "max-age=0,no-cache,no-store"
 

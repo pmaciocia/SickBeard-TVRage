@@ -37,6 +37,12 @@ $(document).ready(function(){
         });
     });
 
+	$('#testProxy').click(function(){
+		$('#testProxy-result').html(loading);
+		$.get(sbRoot+"/home/testProxy", {}, 
+			function (data){ $('#testProxy-result').html(data); });
+	});
+
 });
 
 function config_success(){
